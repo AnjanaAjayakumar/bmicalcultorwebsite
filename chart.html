@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI chart</title>
+    <link rel="shortcut icon" type="images" href="./logo.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        .header {
+            width: 100%;
+            min-height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url(./img5.jpg);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 10%;
+        }
+
+        nav {
+            padding: 30px 3%;
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        nav ul {
+            flex: 1;
+            text-align: right;
+        }
+
+        nav ul li {
+            list-style: none;
+            display: inline-block;
+            margin: 10px 30px;
+        }
+
+        nav ul li a {
+            color: aliceblue;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        nav ul li::after {
+            content: '';
+            width: 0%;
+            height: 2px;
+            background: rgb(3, 236, 163);
+            display: block;
+            margin: auto;
+            transition: 0.5s;
+        }
+
+        nav ul li:hover::after {
+            width: 100%;
+        }
+
+        .logo {
+            width: 70px;
+            cursor: pointer;
+            margin: 0 20px;
+        }
+
+        .line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 9%;
+            width: 2px;
+            background: white;
+        }
+
+        .table-container {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            width: 300px;
+            margin-left: 10%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid white;
+        }
+
+        th {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+</head>
+<body>
+    <div class="header">
+        <nav>
+            <img src="./logo.png" class="logo">
+            <ul>
+                <li><a href="./home.html">Home</a></li>
+                <li><a href="./BMIfind.html">Find BMI</a></li>
+                <li><a href="./chart.html">BMI Chart</a></li>
+                <li><a href="./fitness.html">Fitness</a></li>
+            </ul>
+        </nav>
+        <div class="line"></div>
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Category</th>
+                    <th>BMI Range</th>
+                </tr>
+                <tr>
+                    <td>Severely Underweight</td>
+                    <td>&lt; 16</td>
+                </tr>
+                <tr>
+                    <td>Underweight</td>
+                    <td>16 - 18.5</td>
+                </tr>
+                <tr>
+                    <td>Optimal</td>
+                    <td>18.5 - 25</td>
+                </tr>
+                <tr>
+                    <td>Overweight</td>
+                    <td>25 - 30</td>
+                </tr>
+                <tr>
+                    <td>Obese</td>
+                    <td>30 - 35</td>
+                </tr>
+                <tr>
+                    <td>Severely Obese</td>
+                    <td>&gt; 35</td>
+                </tr>
+            </table>
+           
+            <button class="btn btn-outline-dark" onclick="window.location.href='fitness.html'" style=" margin-top: 10%;">
+                Explore Fitness Plans
+            </button>
+            
+        </div>
+    </div>
+    <footer style="text-align: center; padding: 20px; background-color: #333; color: white; margin-top: 20px;">
+        <p>Created by Anjana AR on 16/03/2025</p>
+    </footer>
+    <script>
+        gsap.from(".table-container", {
+            duration: 1.5,
+            opacity: 0,
+            x: -100,
+            ease: "power2.out"
+        });
+    </script>
+</body>
+</html>
